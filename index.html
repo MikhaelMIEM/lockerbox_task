@@ -1,0 +1,20 @@
+<script>
+  function doSubmit(){
+    var fileInput = document.getElementById('fileSelect');
+	var file = fileInput.files[0];
+	if(file==null){
+		return;
+	}
+	var formData = new FormData();
+	formData.append('file', file);
+ 
+
+ 	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "http://localhost:9000", true);
+	xhr.send(formData);
+  }
+</script>
+<form>
+  <input type="file" id="fileSelect"/>
+  <button type="button" onclick="doSubmit()">Submit</button>
+</form>
